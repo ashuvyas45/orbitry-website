@@ -18,29 +18,52 @@ export default function Header() {
           </Link>
           
           <nav className="hidden items-center gap-6 md:flex">
-            <Link href="#apps" className="text-sm font-medium text-gray-600 transition-colors hover:text-black">
+            <a 
+              href="/#apps" 
+              onClick={(e) => {
+                if (window.location.pathname === '/') {
+                  e.preventDefault();
+                  document.getElementById('apps')?.scrollIntoView({ behavior: 'smooth' });
+                }
+              }}
+              className="text-sm font-medium text-gray-600 transition-colors hover:text-black cursor-pointer"
+            >
               Apps
-            </Link>
-            <Link href="#testimonials" className="text-sm font-medium text-gray-600 transition-colors hover:text-black">
+            </a>
+            <a 
+              href="/#testimonials" 
+              onClick={(e) => {
+                if (window.location.pathname === '/') {
+                  e.preventDefault();
+                  document.getElementById('testimonials')?.scrollIntoView({ behavior: 'smooth' });
+                }
+              }}
+              className="text-sm font-medium text-gray-600 transition-colors hover:text-black cursor-pointer"
+            >
               Testimonials
-            </Link>
-            <Link href="#blog" className="text-sm font-medium text-gray-600 transition-colors hover:text-black">
-              Blog
+            </a>
+            <Link 
+              href="/blogs" 
+              className="text-sm font-medium text-gray-600 transition-colors hover:text-black cursor-pointer"
+            >
+              Blogs
             </Link>
           </nav>
         </div>
 
         <div className="flex items-center gap-3 relative z-10">
-          <Link
-            href="#apps"
+          <a
+            href="/#apps"
             onClick={(e) => {
-              e.preventDefault();
-              document.getElementById('apps')?.scrollIntoView({ behavior: 'smooth' });
+              if (window.location.pathname === '/') {
+                e.preventDefault();
+                document.getElementById('apps')?.scrollIntoView({ behavior: 'smooth' });
+              }
             }}
-            className="hidden sm:inline-flex h-10 items-center justify-center rounded-full bg-white px-6 text-sm font-bold text-gray-900 shadow-sm transition-all hover:bg-gray-50 active:scale-[0.98]"
+            className="hidden sm:inline-flex h-10 items-center justify-center rounded-full bg-white px-6 text-sm font-bold text-gray-900 shadow-sm transition-all hover:bg-gray-50 active:scale-[0.98] cursor-pointer"
           >
             Explore app
-          </Link>
+          </a>
           
           <button 
             className="md:hidden flex h-10 w-10 items-center justify-center rounded-xl bg-white/10 text-gray-900"
@@ -56,21 +79,42 @@ export default function Header() {
       {mobileMenuOpen && (
         <div className="absolute top-full left-0 mt-2 w-full px-6 md:hidden">
           <div className="flex flex-col gap-2 rounded-2xl border border-black/5 bg-white p-4 shadow-xl text-gray-900">
-            {['Apps', 'Testimonials', 'Blog'].map((item) => (
-              <Link 
+            {['Apps', 'Testimonials'].map((item) => (
+              <a 
                 key={item}
-                href={`#${item.toLowerCase()}`} 
+                href={`/#${item.toLowerCase()}`} 
+                onClick={(e) => {
+                  if (window.location.pathname === '/') {
+                    e.preventDefault();
+                    document.getElementById(item.toLowerCase())?.scrollIntoView({ behavior: 'smooth' });
+                    setMobileMenuOpen(false);
+                  }
+                }}
                 className="rounded-xl px-4 py-3 text-base font-medium text-gray-600 hover:bg-black/5 hover:text-gray-900"
               >
                 {item}
-              </Link>
+              </a>
             ))}
             <Link 
-              href="#apps" 
-              className="mt-2 flex h-12 items-center justify-center rounded-xl bg-gray-900 text-base font-bold text-white shadow-md"
+              href="/blogs" 
+              onClick={() => setMobileMenuOpen(false)}
+              className="rounded-xl px-4 py-3 text-base font-medium text-gray-600 hover:bg-black/5 hover:text-gray-900"
+            >
+              Blogs
+            </Link>
+            <a 
+              href="/#apps" 
+              onClick={(e) => {
+                if (window.location.pathname === '/') {
+                  e.preventDefault();
+                  document.getElementById('apps')?.scrollIntoView({ behavior: 'smooth' });
+                  setMobileMenuOpen(false);
+                }
+              }}
+              className="mt-2 flex h-12 items-center justify-center rounded-xl bg-gray-900 text-base font-bold text-white shadow-md cursor-pointer"
             >
               Explore app
-            </Link>
+            </a>
           </div>
         </div>
       )}

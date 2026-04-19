@@ -94,7 +94,7 @@ export default function Stats() {
       
       <div className="relative z-10 mb-20 w-full bg-white">
         <h3 className="mb-5 text-center text-xs font-bold tracking-[0.2em] text-gray-400 uppercase">
-          Trusted by the world's best eCommerce brands
+          Trusted by the world&apos;s best eCommerce brands
         </h3>
         
         {/* Bottom subtle border defining the rail */}

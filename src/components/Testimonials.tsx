@@ -61,7 +61,7 @@ export default function Testimonials() {
                     <StarRating rating={item.rating} />
                   </div>
                   <p className="mb-8 text-[15px] md:text-base leading-relaxed text-gray-600">
-                    "{item.quote}"
+                    &ldquo;{item.quote}&rdquo;
                   </p>
                 </div>
                 <div>
@@ -90,7 +90,7 @@ export default function Testimonials() {
                     <StarRating rating={item.rating} />
                   </div>
                   <p className="mb-8 text-[15px] md:text-base leading-relaxed text-gray-600">
-                    "{item.quote}"
+                    &ldquo;{item.quote}&rdquo;
                   </p>
                 </div>
                 <div>

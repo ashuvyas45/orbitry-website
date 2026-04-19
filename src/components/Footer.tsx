@@ -23,21 +23,54 @@ export default function Footer() {
         
         {/* Minimal Navigation */}
         <nav className="mb-16 flex flex-wrap items-center justify-center gap-x-8 gap-y-4">
-          <Link href="/" className="text-[15px] font-semibold text-gray-300 hover:text-white transition-colors">
+          <a 
+            href="/" 
+            className="text-[15px] font-semibold text-gray-300 hover:text-white transition-colors"
+          >
             Home
-          </Link>
-          <Link href="#apps" className="text-[15px] font-semibold text-gray-300 hover:text-white transition-colors">
+          </a>
+          <a 
+            href="/#apps" 
+            onClick={(e) => {
+              if (window.location.pathname === '/') {
+                e.preventDefault();
+                document.getElementById('apps')?.scrollIntoView({ behavior: 'smooth' });
+              }
+            }}
+            className="text-[15px] font-semibold text-gray-300 hover:text-white transition-colors cursor-pointer"
+          >
             App
-          </Link>
-          <Link href="#testimonials" className="text-[15px] font-semibold text-gray-300 hover:text-white transition-colors">
+          </a>
+          <a 
+            href="/#testimonials" 
+            onClick={(e) => {
+              if (window.location.pathname === '/') {
+                e.preventDefault();
+                document.getElementById('testimonials')?.scrollIntoView({ behavior: 'smooth' });
+              }
+            }}
+            className="text-[15px] font-semibold text-gray-300 hover:text-white transition-colors cursor-pointer"
+          >
             Testimonials
+          </a>
+          <Link 
+            href="/blogs" 
+            className="text-[15px] font-semibold text-gray-300 hover:text-white transition-colors cursor-pointer"
+          >
+            Blogs
           </Link>
-          <Link href="#blog" className="text-[15px] font-semibold text-gray-300 hover:text-white transition-colors">
-            Blog
-          </Link>
-          <Link href="#about" className="text-[15px] font-semibold text-gray-300 hover:text-white transition-colors">
+          <a 
+            href="/#about" 
+            onClick={(e) => {
+              if (window.location.pathname === '/') {
+                e.preventDefault();
+                document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' });
+              }
+            }}
+            className="text-[15px] font-semibold text-gray-300 hover:text-white transition-colors cursor-pointer"
+          >
             About Us
-          </Link>
+          </a>
           <Link href="/privacy" className="text-[15px] font-semibold text-gray-300 hover:text-white transition-colors">
             Privacy
           </Link>

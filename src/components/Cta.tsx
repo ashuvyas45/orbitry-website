@@ -25,7 +25,7 @@ export default function Cta() {
                revenue ceiling?
             </h2>
             <p className="mb-10 text-xl text-blue-100 md:text-2xl font-light">
-              Join the top 1% of Shopify merchants who are multiplying their store's profitability with Orbitry.
+              Join the top 1% of Shopify merchants who are multiplying their store&apos;s profitability with Orbitry.
             </p>
             
             <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">

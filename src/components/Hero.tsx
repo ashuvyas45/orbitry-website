@@ -1,7 +1,6 @@
 "use client";
 
-import Link from "next/link";
-import Image from "next/image";
+
 
 export default function Hero() {
   return (
@@ -40,9 +39,13 @@ export default function Hero() {
             
             {/* Action */}
             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6 animate-fade-in-up" style={{ animationDelay: "350ms" }}>
-              <Link
+              <a
                 href="#apps"
-                className="group relative inline-flex h-14 items-center justify-center gap-3 overflow-hidden rounded-full bg-gray-900 px-8 font-semibold text-white shadow-xl shadow-gray-900/20 transition-all hover:-translate-y-1 hover:shadow-2xl hover:shadow-gray-900/30 active:translate-y-0"
+                onClick={(e) => {
+                  e.preventDefault();
+                  document.getElementById('apps')?.scrollIntoView({ behavior: 'smooth' });
+                }}
+                className="group relative inline-flex h-14 items-center justify-center gap-3 overflow-hidden rounded-full bg-gray-900 px-8 font-semibold text-white shadow-xl shadow-gray-900/20 transition-all hover:-translate-y-1 hover:shadow-2xl hover:shadow-gray-900/30 active:translate-y-0 cursor-pointer"
               >
                 <div className="absolute inset-0 flex h-full w-full justify-center [transform:skew(-12deg)_translateX(-150%)] group-hover:duration-1000 group-hover:[transform:skew(-12deg)_translateX(150%)]">
                   <div className="relative h-full w-8 bg-white/20" />
@@ -51,7 +54,7 @@ export default function Hero() {
                 <div className="relative z-10 flex h-8 w-8 items-center justify-center rounded-full bg-white/20 transition-transform group-hover:translate-x-1">
                   <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}><path strokeLinecap="round" strokeLinejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
                 </div>
-              </Link>
+              </a>
               
               <div className="flex items-center gap-4 text-sm font-medium text-gray-500">
                 <div className="flex -space-x-2">
