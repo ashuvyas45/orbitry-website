@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -11,9 +12,13 @@ export default function Footer() {
         
         {/* Logo */}
         <Link href="/" className="mb-6 flex items-center justify-center">
-           <svg className="h-8 w-auto text-white" viewBox="0 0 100 40" fill="currentColor">
-              <path d="M0 0h12v40H0V0zm24 0h12v15l15-15h16L48 18l22 22H54L36 22v18H24V0z"/>
-           </svg>
+          <Image 
+            src="/whitelogo.svg" 
+            alt="Orbitry Logo" 
+            width={160} 
+            height={40} 
+            className="object-contain h-10 w-auto opacity-90 hover:opacity-100 transition-opacity"
+          />
         </Link>
         
         {/* Slogan */}
@@ -59,18 +64,12 @@ export default function Footer() {
           >
             Blogs
           </Link>
-          <a 
-            href="/#about" 
-            onClick={(e) => {
-              if (window.location.pathname === '/') {
-                e.preventDefault();
-                document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' });
-              }
-            }}
+          <Link 
+            href="/about" 
             className="text-[15px] font-semibold text-gray-300 hover:text-white transition-colors cursor-pointer"
           >
             About Us
-          </a>
+          </Link>
           <Link href="/privacy" className="text-[15px] font-semibold text-gray-300 hover:text-white transition-colors">
             Privacy
           </Link>

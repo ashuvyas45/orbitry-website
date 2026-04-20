@@ -1,22 +1,20 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import Link from "next/link";
 
-const BLOG_POSTS = [
-  { id: 1, title: 'Reducing CAC with Cross-Sells', category: 'Strategy', date: 'Mar 23, 2024', desc: 'Learn how to significantly reduce customer acquisition costs using targeted post-purchase cross-sells.', author: 'Anthony Lin', gradient: 'from-blue-100 to-indigo-100', featured: true },
-  { id: 2, title: 'The Future of AI in eCommerce', category: 'Technology', date: 'Mar 20, 2024', desc: 'Explore how machine learning is revolutionizing store optimization by enabling smarter and faster testing.', author: 'Monica Rivers', gradient: 'from-fuchsia-100 to-rose-100', featured: true },
-  { id: 3, title: 'Optimizing Your Checkout Flow', category: 'Design', date: 'Mar 18, 2024', desc: 'A guide to uncovering friction points in your checkout and removing them completely.', author: 'John Matthews', gradient: 'from-amber-100 to-orange-100', featured: false },
-  { id: 4, title: 'Unconventional Bundle Pricing', category: 'Strategy', date: 'Mar 15, 2024', desc: 'We tested 50 different bundle pricing models. Here is what we found about consumer psychology.', author: 'David Kim', gradient: 'from-emerald-100 to-teal-100', featured: false },
-  { id: 5, title: 'Securing Your Store Data', category: 'Security', date: 'Mar 12, 2024', desc: 'Protect your code and maintain compliance with robust security measures in your automations.', author: 'James Rodriguez', gradient: 'from-cyan-100 to-blue-100', featured: false },
-  { id: 6, title: 'Continuous CRO', category: 'Marketing', date: 'Mar 10, 2024', desc: 'Stop relying on one-off site redesigns. Learn the framework for continuous high velocity testing.', author: 'Laura Jenkins', gradient: 'from-lime-100 to-green-100', featured: false },
-  { id: 7, title: 'Zero Defects!', category: 'Engineering', date: 'Mar 8, 2024', desc: 'How our engineering team prevents visual bugs from making it to your storefront using end-to-end checks.', author: 'Priya Sharma', gradient: 'from-purple-100 to-pink-100', featured: false },
-  { id: 8, title: 'Scale Black Friday', category: 'Growth', date: 'Mar 5, 2024', desc: 'Building scalable strategies for the biggest shopping weekend of the year without crashing.', author: 'Mark Thompson', gradient: 'from-slate-100 to-gray-200', featured: false },
-];
+import { BLOG_POSTS } from "../lib/blogData";
 
 export default function BlogsCatalog() {
   const [search, setSearch] = useState('');
   const [category, setCategory] = useState('All categories');
+  const [currentPage, setCurrentPage] = useState(1);
+  const POSTS_PER_PAGE = 3;
+  
+  // Reset pagination when filters change
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [search, category]);
   
   const featuredBlogs = BLOG_POSTS.filter(b => b.featured);
   
@@ -29,6 +27,9 @@ export default function BlogsCatalog() {
       return matchSearch && matchCat;
     });
   }, [search, category]);
+
+  const totalPages = Math.ceil(filteredBlogs.length / POSTS_PER_PAGE);
+  const currentBlogs = filteredBlogs.slice((currentPage - 1) * POSTS_PER_PAGE, currentPage * POSTS_PER_PAGE);
 
   return (
     <div className="w-full">
@@ -69,19 +70,45 @@ export default function BlogsCatalog() {
                 
                 {/* Image Placeholder Area */}
                 <div className={`w-full sm:w-2/5 h-48 sm:h-auto bg-gradient-to-br ${blog.gradient} p-8 flex flex-col justify-between relative`}>
-                   <div className="bg-white/60 backdrop-blur-sm shadow-sm inline-flex px-3 py-1 rounded-full text-xs font-bold text-gray-700 uppercase tracking-widest w-fit">
-                     #{blog.category}
-                   </div>
-                   {/* Author Avatar abstraction */}
-                   <div className="absolute bottom-6 right-6 flex items-center gap-3">
-                      <div className="text-right hidden xl:block">
-                        <div className="text-xs font-bold text-gray-800">{blog.author}</div>
-                        <div className="text-[10px] text-gray-500">Expert Contributor</div>
-                      </div>
-                      <div className="w-12 h-12 rounded-full overflow-hidden bg-white shadow-md border-2 border-white flex items-center justify-center font-serif text-lg font-bold text-gray-400">
-                        {blog.author.charAt(0)}
-                      </div>
-                   </div>
+                   {blog.type === 'solution' ? (
+                     <>
+                       {/* Merchant Intent Pills */}
+                       <div className="flex flex-col gap-2 w-fit">
+                         <span className="bg-red-500/10 text-red-700 backdrop-blur-sm shadow-sm inline-flex px-3 py-1.5 rounded-xl text-[10px] sm:text-xs font-bold tracking-widest border border-red-500/20 leading-none items-center gap-1.5">
+                           <span className="w-1.5 h-1.5 rounded-full bg-red-600 animate-pulse"></span> {blog.symptom}
+                         </span>
+                         <span className="bg-emerald-500/10 text-emerald-700 backdrop-blur-sm shadow-sm inline-flex px-3 py-1.5 rounded-xl text-[10px] sm:text-xs font-bold tracking-widest border border-emerald-500/20 leading-none">
+                           ✨ {blog.cure}
+                         </span>
+                       </div>
+                       
+                       {/* ROI Target Badge */}
+                       <div className="absolute bottom-6 right-6">
+                          <div className="bg-[#050505] text-white shadow-xl border border-white/20 px-4 py-2.5 rounded-2xl flex flex-col items-center justify-center transform rotate-2 group-hover:rotate-0 group-hover:scale-105 transition-all duration-300">
+                            <span className="text-[9px] text-gray-400 font-bold uppercase tracking-widest mb-1">Target expected</span>
+                            <span className="text-base font-bold text-emerald-400 tracking-tight">{blog.roi}</span>
+                          </div>
+                       </div>
+                     </>
+                   ) : (
+                     <>
+                       <div className="bg-white/60 backdrop-blur-sm shadow-sm inline-flex px-3 py-1 rounded-full text-xs font-bold text-gray-700 uppercase tracking-widest w-fit">
+                         #{blog.category}
+                       </div>
+                       {/* Author Avatar */}
+                       <div className="absolute bottom-6 right-6 flex items-center gap-3">
+                          <div className="text-right hidden xl:block">
+                            <div className="text-xs font-bold text-gray-800">{blog.author}</div>
+                            <div className="text-[10px] text-gray-500">
+                              {blog.type === 'case-study' ? 'Brand Story' : blog.type === 'tutorial' ? 'Technical Guide' : 'Expert Insights'}
+                            </div>
+                          </div>
+                          <div className="w-12 h-12 rounded-full overflow-hidden bg-white shadow-md border-2 border-white flex items-center justify-center font-serif text-lg font-bold text-gray-400">
+                            {blog.author?.charAt(0) || 'A'}
+                          </div>
+                       </div>
+                     </>
+                   )}
                 </div>
 
                 {/* Content Area */}
@@ -95,7 +122,7 @@ export default function BlogsCatalog() {
                       {blog.desc}
                     </p>
                   </div>
-                  <Link href={`#read-${blog.id}`} className="inline-flex h-10 w-32 items-center justify-center rounded-xl bg-[#050505] px-4 text-sm font-bold text-white transition-transform hover:scale-105 shadow-md">
+                  <Link href={`/blogs/${blog.slug}`} className="inline-flex h-10 w-32 items-center justify-center rounded-xl bg-[#050505] px-4 text-sm font-bold text-white transition-transform hover:scale-105 shadow-md">
                     Read Post
                   </Link>
                 </div>
@@ -147,16 +174,35 @@ export default function BlogsCatalog() {
 
           {/* Grid Layout */}
           {filteredBlogs.length > 0 ? (
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-              {filteredBlogs.map(blog => (
+            <div className="flex flex-col gap-12">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                {currentBlogs.map(blog => (
                 <div key={blog.id} className="group flex flex-col overflow-hidden rounded-[2rem] bg-white border border-black/5 shadow-sm hover:shadow-xl transition-all duration-300">
                   <div className={`w-full h-40 bg-gradient-to-br ${blog.gradient} p-6 relative`}>
-                     <div className="bg-white/60 backdrop-blur-sm shadow-sm inline-flex px-3 py-1 rounded-full text-xs font-bold text-gray-700 uppercase tracking-widest">
-                       #{blog.category}
-                     </div>
-                     <div className="absolute bottom-4 right-4 w-10 h-10 rounded-full bg-white shadow-md border border-black/5 flex items-center justify-center font-serif font-bold text-gray-400">
-                        {blog.author.charAt(0)}
-                      </div>
+                     {blog.type === 'solution' ? (
+                       <>
+                         <div className="flex flex-col gap-2 w-fit">
+                           <span className="bg-red-500/10 text-red-700 backdrop-blur-sm shadow-sm inline-flex px-3 py-1.5 rounded-lg text-[10px] font-bold tracking-widest border border-red-500/20 leading-none items-center gap-1.5">
+                             <span className="w-1.5 h-1.5 rounded-full bg-red-600"></span> {blog.symptom}
+                           </span>
+                           <span className="bg-emerald-500/10 text-emerald-700 backdrop-blur-sm shadow-sm inline-flex px-3 py-1.5 rounded-lg text-[10px] font-bold tracking-widest border border-emerald-500/20 leading-none">
+                             ✨ {blog.cure}
+                           </span>
+                         </div>
+                         <div className="absolute bottom-4 right-4 bg-white/95 backdrop-blur-md shadow-md border border-black/5 px-3 py-1.5 rounded-xl flex items-center justify-center group-hover:-translate-y-1 transition-transform">
+                            <span className="text-xs font-bold text-emerald-600 tracking-wide">{blog.roi}</span>
+                          </div>
+                       </>
+                     ) : (
+                       <>
+                         <div className="bg-white/60 backdrop-blur-sm shadow-sm inline-flex px-3 py-1 rounded-full text-xs font-bold text-gray-700 uppercase tracking-widest">
+                           #{blog.category}
+                         </div>
+                         <div className="absolute bottom-4 right-4 w-10 h-10 rounded-full bg-white shadow-md border border-black/5 flex items-center justify-center font-serif font-bold text-gray-400 group-hover:-translate-y-1 transition-transform">
+                            {blog.author?.charAt(0) || 'A'}
+                          </div>
+                       </>
+                     )}
                   </div>
                   <div className="p-8 flex flex-col flex-1 justify-between">
                     <div>
@@ -168,12 +214,50 @@ export default function BlogsCatalog() {
                         {blog.desc}
                       </p>
                     </div>
-                    <Link href={`#read-${blog.id}`} className="text-blue-600 font-bold text-sm tracking-wide inline-flex items-center gap-1 group-hover:gap-2 transition-all">
+                    <Link href={`/blogs/${blog.slug}`} className="text-blue-600 font-bold text-sm tracking-wide inline-flex items-center gap-1 group-hover:gap-2 transition-all">
                       Read more <span>&rarr;</span>
                     </Link>
                   </div>
                 </div>
               ))}
+            </div>
+              
+              {/* Pagination Controls */}
+              {totalPages > 1 && (
+                <div className="flex items-center justify-center gap-2 mt-8">
+                  <button 
+                    onClick={() => setCurrentPage(p => Math.max(1, p - 1))}
+                    disabled={currentPage === 1}
+                    className="h-10 px-4 flex items-center justify-center rounded-xl bg-white border border-black/5 text-sm font-medium text-gray-600 hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed shadow-sm transition-colors"
+                  >
+                    Previous
+                  </button>
+                  
+                  <div className="flex items-center gap-1 mx-2">
+                    {Array.from({ length: totalPages }).map((_, idx) => (
+                      <button
+                        key={idx}
+                        onClick={() => setCurrentPage(idx + 1)}
+                        className={`w-10 h-10 flex items-center justify-center rounded-xl text-sm font-bold transition-colors ${
+                          currentPage === idx + 1 
+                            ? 'bg-blue-600 text-white shadow-md' 
+                            : 'bg-white text-gray-600 hover:bg-gray-100 border border-black/5'
+                        }`}
+                      >
+                        {idx + 1}
+                      </button>
+                    ))}
+                  </div>
+
+                  <button 
+                    onClick={() => setCurrentPage(p => Math.min(totalPages, p + 1))}
+                    disabled={currentPage === totalPages}
+                    className="h-10 px-4 flex items-center justify-center rounded-xl bg-white border border-black/5 text-sm font-medium text-gray-600 hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed shadow-sm transition-colors"
+                  >
+                    Next
+                  </button>
+                </div>
+              )}
             </div>
           ) : (
             <div className="w-full py-20 flex flex-col items-center justify-center text-center bg-white rounded-[2rem] border border-black/5 border-dashed">

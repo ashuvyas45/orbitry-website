@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useState } from "react";
 
 export default function Header() {
@@ -10,11 +11,15 @@ export default function Header() {
     <header className="absolute top-0 z-50 w-full pt-6">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 xl:px-12">
         <div className="flex items-center gap-10">
-          <Link href="/" className="flex items-center gap-2 group">
-            <svg className="h-6 w-auto text-black" viewBox="0 0 100 40" fill="currentColor">
-              <path d="M0 0h12v40H0V0zm24 0h12v15l15-15h16L48 18l22 22H54L36 22v18H24V0z"/>
-            </svg>
-            <span className="text-xl font-bold tracking-tight text-gray-900">Orbitry</span>
+          <Link href="/" className="flex items-center group">
+            <Image 
+              src="/blacklogo.svg" 
+              alt="Orbitry Logo" 
+              width={140} 
+              height={32} 
+              className="object-contain h-8 w-auto mix-blend-multiply" 
+              priority
+            />
           </Link>
           
           <nav className="hidden items-center gap-6 md:flex">
@@ -47,6 +52,12 @@ export default function Header() {
               className="text-sm font-medium text-gray-600 transition-colors hover:text-black cursor-pointer"
             >
               Blogs
+            </Link>
+            <Link 
+              href="/about" 
+              className="text-sm font-medium text-gray-600 transition-colors hover:text-black cursor-pointer"
+            >
+              About Us
             </Link>
           </nav>
         </div>
@@ -101,6 +112,13 @@ export default function Header() {
               className="rounded-xl px-4 py-3 text-base font-medium text-gray-600 hover:bg-black/5 hover:text-gray-900"
             >
               Blogs
+            </Link>
+            <Link 
+              href="/about" 
+              onClick={() => setMobileMenuOpen(false)}
+              className="rounded-xl px-4 py-3 text-base font-medium text-gray-600 hover:bg-black/5 hover:text-gray-900"
+            >
+              About Us
             </Link>
             <a 
               href="/#apps" 
