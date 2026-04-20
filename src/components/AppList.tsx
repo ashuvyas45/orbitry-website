@@ -50,7 +50,7 @@ export default function AppList() {
             <span className="flex h-5 w-5 items-center justify-center rounded-full bg-blue-100 text-blue-600 text-[10px]">🚀</span>
             <span className="text-xs font-semibold tracking-wider text-gray-600 uppercase">Our Ecosystem</span>
           </div>
-          <h2 className="mb-6 text-[2.5rem] font-bold tracking-tight text-gray-900 md:text-5xl">
+          <h2 className="mb-6 text-4xl sm:text-[2.5rem] font-bold tracking-tight text-gray-900 md:text-5xl">
             Choose your growth engine
           </h2>
           <p className="mx-auto max-w-2xl text-lg text-gray-600">
@@ -58,14 +58,14 @@ export default function AppList() {
           </p>
         </div>
         
-        <div className="grid gap-8 lg:grid-cols-3">
+        <div className="grid gap-6 sm:gap-8 lg:grid-cols-3">
           {apps.map((app) => (
             <div
               key={app.id}
                className="glass-card group relative flex flex-col overflow-hidden rounded-[2rem] border border-black/5 bg-white/80 transition-all duration-500 hover:-translate-y-2 hover:border-black/10 hover:shadow-2xl hover:shadow-[rgba(0,0,0,0.05)]"
             >
               {/* Image / Header area */}
-              <div className={`relative aspect-[4/3] w-full overflow-hidden ${app.bgAccent}`}>
+              <div className={`relative aspect-[3/2] sm:aspect-[4/3] w-full overflow-hidden ${app.bgAccent}`}>
                 <div className={`absolute -right-20 -top-20 h-48 w-48 rounded-full bg-gradient-to-br ${app.gradient} blur-[60px] opacity-20 group-hover:opacity-40 transition-opacity duration-500`} />
                 <div className="absolute inset-0 flex items-center justify-center">
                   <div className={`flex h-24 w-24 items-center justify-center rounded-[1.5rem] bg-gradient-to-br ${app.gradient} shadow-2xl ${app.shadow} transition-transform duration-500 group-hover:scale-110 group-hover:rotate-3`}>

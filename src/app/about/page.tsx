@@ -20,7 +20,7 @@ export default function AboutPage() {
           
           <span className="text-xs font-bold text-blue-600 tracking-widest uppercase mb-6 bg-blue-50 px-4 py-1.5 rounded-full border border-blue-100 shadow-sm">Our Story</span>
           
-          <h1 className="font-serif text-5xl sm:text-6xl md:text-8xl font-medium tracking-tighter text-gray-900 leading-[1.05] mb-8 max-w-5xl">
+          <h1 className="font-serif text-4xl sm:text-6xl md:text-8xl font-medium tracking-tighter text-gray-900 leading-[1.05] mb-8 max-w-5xl">
             We build the tools we <span className="italic text-gray-400">wished</span> we had.
           </h1>
           
@@ -82,7 +82,7 @@ export default function AboutPage() {
 
 
         {/* SECTION 3: THE MISSION LAYER (Overlap Concept) */}
-        <section className="max-w-5xl mx-auto px-6 -mt-24 sm:-mt-32 relative z-10 mb-32">
+        <section className="max-w-5xl mx-auto px-6 -mt-16 sm:-mt-24 md:-mt-32 relative z-10 mb-32">
           <div className="bg-gradient-to-br from-indigo-600 to-blue-700 rounded-[2rem] sm:rounded-[4rem] p-10 sm:p-24 shadow-[0_30px_60px_-15px_rgba(0,0,0,0.4)] text-center relative overflow-hidden ring-1 ring-white/10">
              
              {/* Decorative Grid SVG Graphic */}

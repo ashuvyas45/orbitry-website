@@ -122,7 +122,7 @@ export default function Stats() {
         </div>
 
         {/* Stats Numbers */}
-        <div className="grid gap-10 text-center md:grid-cols-3 lg:gap-16 pt-8">
+        <div className="grid gap-8 sm:gap-10 text-center md:grid-cols-3 lg:gap-16 pt-8">
           {[
             { value: "40,000+", label: "Merchants Using Our Apps", accent: "from-blue-600 to-indigo-600" },
             { value: "$600M+", label: "Additional Revenue Generated", accent: "from-emerald-600 to-teal-600" },
@@ -130,7 +130,7 @@ export default function Stats() {
           ].map((stat, i) => (
             <div key={i} className="group relative flex flex-col items-center p-6 z-10">
               <div className="absolute inset-0 rounded-[2rem] bg-black/[0.02] opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
-              <div className={`mb-3 bg-gradient-to-r ${stat.accent} bg-clip-text text-5xl font-bold tracking-tight text-transparent drop-shadow-sm md:text-6xl lg:text-[4.5rem]`}>
+              <div className={`mb-3 bg-gradient-to-r ${stat.accent} bg-clip-text text-4xl sm:text-5xl font-bold tracking-tight text-transparent drop-shadow-sm md:text-6xl lg:text-[4.5rem]`}>
                 {stat.value}
               </div>
               <div className="text-sm font-semibold uppercase tracking-widest text-gray-500 lg:text-base">

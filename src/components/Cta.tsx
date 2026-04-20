@@ -20,7 +20,7 @@ export default function Cta() {
           </div>
           
           <div className="relative z-10 mx-auto max-w-3xl">
-            <h2 className="mb-6 font-serif text-[2.5rem] font-bold leading-tight tracking-tight text-white md:text-[4rem]">
+            <h2 className="mb-6 font-serif text-3xl sm:text-[2.5rem] font-bold leading-tight tracking-tight text-white md:text-[4rem]">
               Ready to break your <br/>
                revenue ceiling?
             </h2>

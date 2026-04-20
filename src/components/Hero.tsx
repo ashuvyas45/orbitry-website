@@ -20,7 +20,7 @@ export default function Hero() {
         <div className="flex w-full flex-col justify-center lg:w-[50%] z-20">
           <div className="max-w-xl">
             {/* Headline */}
-            <h1 className="mb-6 font-serif text-[4.5rem] leading-[0.95] tracking-tight text-gray-900 md:text-[5.5rem] lg:text-[6.5rem] animate-fade-in-up" style={{ animationDelay: "150ms" }}>
+            <h1 className="mb-6 font-serif text-[3.25rem] sm:text-[4.5rem] leading-[0.95] tracking-tight text-gray-900 md:text-[5.5rem] lg:text-[6.5rem] animate-fade-in-up" style={{ animationDelay: "150ms" }}>
               Unlock your <br/>
               <span className="relative inline-block text-transparent bg-clip-text bg-gradient-to-r from-blue-700 via-indigo-700 to-purple-700 pb-2">
                 revenue
@@ -33,7 +33,7 @@ export default function Hero() {
             </h1>
             
             {/* Subheadline */}
-            <p className="mb-12 max-w-lg text-xl text-gray-600 leading-relaxed font-light animate-fade-in-up" style={{ animationDelay: "250ms" }}>
+            <p className="mb-12 max-w-lg text-lg sm:text-xl text-gray-600 leading-relaxed font-light animate-fade-in-up" style={{ animationDelay: "250ms" }}>
               Seamless checkout upsells, dynamic bundle deals, and quantity breaks that instantly increase your average order value.
             </p>
             
@@ -76,7 +76,7 @@ export default function Hero() {
             <div className="absolute inset-0 bg-gradient-to-tr from-blue-600/10 to-purple-600/10 rounded-full blur-[80px]" />
             
             {/* Primary Glass UI Widget */}
-            <div className="glass-card absolute z-30 w-[85%] max-w-[380px] rounded-3xl border border-white/60 bg-white/70 p-6 shadow-2xl backdrop-blur-xl animate-float">
+            <div className="glass-card absolute z-30 w-[85%] max-w-[320px] sm:max-w-[380px] rounded-3xl border border-white/60 bg-white/70 p-6 shadow-2xl backdrop-blur-xl animate-float">
               {/* Header */}
               <div className="mb-5 flex items-center justify-between border-b border-gray-100 pb-4">
                 <div className="flex items-center gap-3">
