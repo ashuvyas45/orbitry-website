@@ -3,9 +3,12 @@
 :root {
   --background: #fafafa;
   --foreground: #0f172a;
-  --primary: #3b82f6;
-  --primary-dark: #2563eb;
-  --accent: #8b5cf6;
+  --primary: #ff7a00;
+  --primary-dark: #e80081;
+  --accent: #ff4f45;
+  --brand-orange-500: #ff7a00;
+  --brand-pink-600: #e80081;
+  --brand-gradient: linear-gradient(90deg, #ff7a00 0%, #ff4f45 45%, #e80081 100%);
   --canvas-surface: #ffffff;
   --border: rgba(0, 0, 0, 0.08);
 }
@@ -72,8 +75,13 @@ body {
 }
 
 @keyframes pulse-glow {
-  0%, 100% { box-shadow: 0 0 20px rgba(59, 130, 246, 0.15); }
-  50% { box-shadow: 0 0 40px rgba(59, 130, 246, 0.3); }
+  0%, 100% { box-shadow: 0 0 20px rgba(255, 122, 0, 0.2); }
+  50% { box-shadow: 0 0 40px rgba(232, 0, 129, 0.32); }
+}
+
+@keyframes live-pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.35; transform: scale(0.85); }
 }
 
 .animate-float {
@@ -112,4 +120,8 @@ body {
 
 .animate-pulse-glow {
   animation: pulse-glow 3s ease-in-out infinite;
+}
+
+.animate-live-pulse {
+  animation: live-pulse 1.2s ease-in-out infinite;
 }

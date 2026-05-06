@@ -15,9 +15,9 @@ export default function Header() {
             <Image 
               src="/blacklogo.svg" 
               alt="Orbitry Logo" 
-              width={140} 
-              height={32} 
-              className="object-contain h-8 w-auto mix-blend-multiply" 
+              width={210} 
+              height={54} 
+              className="object-contain h-11 w-auto mix-blend-multiply" 
               priority
             />
           </Link>
@@ -31,7 +31,7 @@ export default function Header() {
                   document.getElementById('apps')?.scrollIntoView({ behavior: 'smooth' });
                 }
               }}
-              className="text-sm font-medium text-gray-600 transition-colors hover:text-black cursor-pointer"
+              className="text-base font-semibold text-gray-600 transition-colors hover:text-black cursor-pointer"
             >
               Apps
             </a>
@@ -43,19 +43,19 @@ export default function Header() {
                   document.getElementById('testimonials')?.scrollIntoView({ behavior: 'smooth' });
                 }
               }}
-              className="text-sm font-medium text-gray-600 transition-colors hover:text-black cursor-pointer"
+              className="text-base font-semibold text-gray-600 transition-colors hover:text-black cursor-pointer"
             >
               Testimonials
             </a>
             <Link 
               href="/blogs" 
-              className="text-sm font-medium text-gray-600 transition-colors hover:text-black cursor-pointer"
+              className="text-base font-semibold text-gray-600 transition-colors hover:text-black cursor-pointer"
             >
               Blogs
             </Link>
             <Link 
               href="/about" 
-              className="text-sm font-medium text-gray-600 transition-colors hover:text-black cursor-pointer"
+              className="text-base font-semibold text-gray-600 transition-colors hover:text-black cursor-pointer"
             >
               About Us
             </Link>
@@ -71,7 +71,7 @@ export default function Header() {
                 document.getElementById('apps')?.scrollIntoView({ behavior: 'smooth' });
               }
             }}
-            className="hidden sm:inline-flex h-10 items-center justify-center rounded-full bg-white px-6 text-sm font-bold text-gray-900 shadow-sm transition-all hover:bg-gray-50 active:scale-[0.98] cursor-pointer"
+            className="hidden sm:inline-flex h-10 items-center justify-center rounded-full bg-gradient-to-r from-orange-500 to-pink-600 px-6 text-sm font-bold text-white shadow-sm shadow-pink-600/20 transition-all hover:brightness-105 active:scale-[0.98] cursor-pointer"
           >
             Explore app
           </a>
@@ -101,7 +101,7 @@ export default function Header() {
                     setMobileMenuOpen(false);
                   }
                 }}
-                className="rounded-xl px-4 py-3 text-base font-medium text-gray-600 hover:bg-black/5 hover:text-gray-900"
+                className="rounded-xl px-4 py-3 text-lg font-semibold text-gray-600 hover:bg-black/5 hover:text-gray-900"
               >
                 {item}
               </a>
@@ -109,14 +109,14 @@ export default function Header() {
             <Link 
               href="/blogs" 
               onClick={() => setMobileMenuOpen(false)}
-              className="rounded-xl px-4 py-3 text-base font-medium text-gray-600 hover:bg-black/5 hover:text-gray-900"
+              className="rounded-xl px-4 py-3 text-lg font-semibold text-gray-600 hover:bg-black/5 hover:text-gray-900"
             >
               Blogs
             </Link>
             <Link 
               href="/about" 
               onClick={() => setMobileMenuOpen(false)}
-              className="rounded-xl px-4 py-3 text-base font-medium text-gray-600 hover:bg-black/5 hover:text-gray-900"
+              className="rounded-xl px-4 py-3 text-lg font-semibold text-gray-600 hover:bg-black/5 hover:text-gray-900"
             >
               About Us
             </Link>
@@ -129,7 +129,7 @@ export default function Header() {
                   setMobileMenuOpen(false);
                 }
               }}
-              className="mt-2 flex h-12 items-center justify-center rounded-xl bg-gray-900 text-base font-bold text-white shadow-md cursor-pointer"
+              className="mt-2 flex h-12 items-center justify-center rounded-xl bg-gradient-to-r from-orange-500 to-pink-600 text-base font-bold text-white shadow-md shadow-pink-600/25 cursor-pointer"
             >
               Explore app
             </a>

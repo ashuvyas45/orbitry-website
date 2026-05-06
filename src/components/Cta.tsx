@@ -12,7 +12,7 @@ export default function Cta() {
       </div>
 
       <div className="mx-auto max-w-5xl relative z-10 translate-y-12">
-        <div className="relative overflow-hidden rounded-[3rem] border border-white/20 bg-gradient-to-br from-blue-600 via-indigo-600 to-purple-600 px-6 py-20 text-center shadow-2xl shadow-indigo-900/50 md:px-16 md:py-24">
+        <div className="relative overflow-hidden rounded-[3rem] border border-white/20 bg-gradient-to-br from-orange-500 via-red-500 to-pink-600 px-6 py-20 text-center shadow-2xl shadow-pink-900/45 md:px-16 md:py-24">
           
           {/* Intense gradient back drop inside the card */}
           <div className="absolute inset-0 z-0 opacity-40">
@@ -24,7 +24,7 @@ export default function Cta() {
               Ready to break your <br/>
                revenue ceiling?
             </h2>
-            <p className="mb-10 text-xl text-blue-100 md:text-2xl font-light">
+            <p className="mb-10 text-xl text-orange-50 md:text-2xl font-light">
               Join the top 1% of Shopify merchants who are multiplying their store&apos;s profitability with Orbitry.
             </p>
             
@@ -47,7 +47,7 @@ export default function Cta() {
                 Explore Apps
               </Link>
             </div>
-            <div className="mt-8 text-sm font-medium text-blue-200">
+            <div className="mt-8 text-sm font-medium text-orange-100">
                No credit card required · Install in 2 minutes
             </div>
           </div>
