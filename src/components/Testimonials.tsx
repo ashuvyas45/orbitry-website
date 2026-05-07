@@ -1,6 +1,14 @@
 "use client";
 
-const reviews = [
+export type Review = {
+  domain: string;
+  rating: number;
+  quote: string;
+  author: string;
+  handle: string;
+};
+
+const defaultReviews: Review[] = [
   { domain: "gymshark.com", rating: 4.9, quote: "The progress tracker is fantastic. It's motivating to see how much I've improved over time. The app has a great mix of features.", author: "Sanjay Sharma", handle: "voracious_rainbows_68" },
   { domain: "allbirds.com", rating: 5.0, quote: "Exceeded our expectations with innovative designs that brought our vision to life - a truly remarkable partner.", author: "Samantha Johnson", handle: "CEO and Co-founder of ABC Company" },
   { domain: "glossier.com", rating: 4.9, quote: "Their ability to capture our brand essence in every project is unparalleled - an invaluable creative collaborator.", author: "Isabella Rodriguez", handle: "CEO and Co-founder of ABC Company" },
@@ -22,7 +30,17 @@ function StarRating({ rating }: { rating: number }) {
   );
 }
 
-export default function Testimonials() {
+type TestimonialsProps = {
+  title?: string;
+  reviews?: Review[];
+  id?: string;
+};
+
+export default function Testimonials({
+  title = "Words of praise from others about our presence.",
+  reviews = defaultReviews,
+  id = "testimonials",
+}: TestimonialsProps) {
   const row1 = reviews.slice(0, 4);
   const duplicatedRow1 = [...row1, ...row1, ...row1];
 
@@ -30,12 +48,12 @@ export default function Testimonials() {
   const duplicatedRow2 = [...row2, ...row2, ...row2];
 
   return (
-    <section className="relative overflow-hidden bg-[#fafafa] pt-32 pb-40" id="testimonials">
+    <section className="relative overflow-hidden bg-[#fafafa] pt-32 pb-40" id={id}>
       
       <div className="mx-auto max-w-7xl px-6">
         <div className="mb-20 text-center relative z-20">
           <h2 className="mb-6 font-serif text-[2.5rem] font-bold leading-tight tracking-tight text-gray-900 md:text-5xl lg:text-6xl">
-            Words of praise from others<br/>about our presence.
+            {title}
           </h2>
         </div>
       </div>

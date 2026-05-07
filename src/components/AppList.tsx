@@ -6,9 +6,9 @@ const apps = [
   {
     id: "orbitry-upsell",
     name: "Orbitry Upsell",
-    description: "Increase your AOV with intelligent volume discounts, strategic bundle deals, and hyper-converting \"buy x, get y free\" offers.",
+    description: "Lift AOV with personalized curated bundles, FBT recommendations, and conversion-focused volume and Buy x Get y offers.",
     appStoreLink: "https://apps.shopify.com",
-    features: ["Volume Discounts", "Bundle Deals", "Buy X Get Y"],
+    features: ["Volume Discounts", "Bundle Deals", "Buy X Get Y", "FBT"],
     gradient: "from-orange-500 to-pink-600",
     shadow: "shadow-pink-500/30",
     bgAccent: "bg-orange-50/70",
@@ -39,6 +39,8 @@ const apps = [
 ];
 
 export default function AppList() {
+  const visibleApps = apps.filter((app) => !app.comingSoon);
+
   return (
     <section id="apps" className="bg-[#fafafa] py-32 relative">
       <div className="absolute inset-0 bg-[linear-gradient(rgba(0,0,0,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(0,0,0,0.02)_1px,transparent_1px)] bg-[size:32px_32px]" />
@@ -50,15 +52,21 @@ export default function AppList() {
             <span className="text-xs font-semibold tracking-wider text-gray-600 uppercase">Our Ecosystem</span>
           </div>
           <h2 className="mb-6 text-4xl sm:text-[2.5rem] font-bold tracking-tight text-gray-900 md:text-5xl">
-            Choose your growth engine
+            Built for high-converting Shopify upsells
           </h2>
           <p className="mx-auto max-w-2xl text-lg text-gray-600">
-            Powerful, hardware-accelerated tools to help you increase your average order value and scale your Shopify store without slowing down performance.
+            Orbitry Upsell helps you lift AOV with volume discounts, bundle offers, and Buy X Get Y promotions that feel native to your storefront.
           </p>
         </div>
 
-        <div className="grid gap-6 sm:gap-8 lg:grid-cols-3">
-          {apps.map((app) => (
+        <div
+          className={`grid gap-6 sm:gap-8 ${
+            visibleApps.length === 1
+              ? "mx-auto max-w-xl lg:grid-cols-1"
+              : "lg:grid-cols-3"
+          }`}
+        >
+          {visibleApps.map((app) => (
             <div
               key={app.id}
               className="glass-card group relative flex flex-col overflow-hidden rounded-[2rem] border border-black/5 bg-white/80 transition-all duration-500 hover:-translate-y-2 hover:border-black/10 hover:shadow-2xl hover:shadow-[rgba(0,0,0,0.05)]"
