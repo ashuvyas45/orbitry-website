@@ -5,6 +5,9 @@ import Footer from "@/components/Footer";
 export const metadata: Metadata = {
   title: "Privacy Policy | Orbitry",
   description: "Learn how Orbitry carefully processes, stores, and protects your data.",
+  alternates: {
+    canonical: "/privacy",
+  },
 };
 
 export default function PrivacyPage() {

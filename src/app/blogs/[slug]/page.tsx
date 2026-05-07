@@ -3,6 +3,7 @@ import { Metadata } from "next";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { BLOG_POSTS, ContentBlock } from "@/lib/blogData";
+import { SITE_NAME, toAbsoluteUrl } from "@/lib/seo";
 
 export async function generateMetadata(
   props: { params: Promise<{ slug: string }> }
@@ -17,6 +18,30 @@ export async function generateMetadata(
   return {
     title: `${blog.title} | Orbitry Blog`,
     description: blog.desc,
+    alternates: {
+      canonical: `/blogs/${blog.slug}`,
+    },
+    openGraph: {
+      type: "article",
+      title: blog.title,
+      description: blog.desc,
+      url: `/blogs/${blog.slug}`,
+      siteName: SITE_NAME,
+      images: [
+        {
+          url: toAbsoluteUrl("/opengraph-image.png"),
+          width: 1200,
+          height: 630,
+          alt: blog.title,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: blog.title,
+      description: blog.desc,
+      images: [toAbsoluteUrl("/opengraph-image.png")],
+    },
   };
 }
 

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useMemo, useEffect } from "react";
+import { useState, useMemo } from "react";
 import Link from "next/link";
 
 import { BLOG_POSTS } from "../lib/blogData";
@@ -10,11 +10,6 @@ export default function BlogsCatalog() {
   const [category, setCategory] = useState('All categories');
   const [currentPage, setCurrentPage] = useState(1);
   const POSTS_PER_PAGE = 3;
-  
-  // Reset pagination when filters change
-  useEffect(() => {
-    setCurrentPage(1);
-  }, [search, category]);
   
   const featuredBlogs = BLOG_POSTS.filter(b => b.featured);
   
@@ -33,31 +28,35 @@ export default function BlogsCatalog() {
 
   return (
     <div className="w-full">
-      {/* Top Section - Dark Theme Full Width */}
-      <div className="w-full bg-[#050505] pt-16 pb-32 px-6 border-b border-white/5">
+      {/* Top Section - Branded Full Width */}
+      <div className="relative w-full overflow-hidden bg-[#fafaf9] pt-16 pb-32 px-6 border-b border-black/5">
+        <div className="pointer-events-none absolute inset-0 overflow-hidden">
+          <div className="absolute -top-[10%] -right-[10%] h-[70vw] w-[70vw] rounded-full bg-gradient-to-b from-orange-100/70 to-pink-200/60 blur-[120px]" />
+          <div className="absolute top-[40%] -left-[10%] h-[50vw] w-[50vw] rounded-full bg-gradient-to-tr from-orange-50/80 to-pink-100/60 blur-[100px]" />
+        </div>
         <div className="mx-auto max-w-6xl">
           
-          <div className="text-center mb-16 max-w-3xl mx-auto flex flex-col items-center">
-            <h3 className="text-xs font-bold tracking-[0.2em] text-gray-400 uppercase mb-4">
-               | Our Blog
+          <div className="relative z-10 text-center mb-16 max-w-3xl mx-auto flex flex-col items-center">
+            <h3 className="text-xs font-bold tracking-[0.2em] text-gray-500 uppercase mb-4">
+               Orbitry Journal
             </h3>
-            <h1 className="font-serif text-4xl md:text-5xl font-bold leading-tight tracking-tight text-white mb-6">
+            <h1 className="font-serif text-4xl md:text-5xl font-bold leading-tight tracking-tight text-gray-900 mb-6">
               Grow your eCommerce business with our Blogs
             </h1>
-            <p className="text-gray-400 text-lg">
+            <p className="text-gray-600 text-lg">
               Insights, strategies, and case studies to help you multiply your store&apos;s profitability and stay ahead of the curve.
             </p>
           </div>
 
-          <div className="mb-6 flex items-center justify-between">
-            <h2 className="text-xl font-bold text-white tracking-wide">
-              Trending<span className="text-blue-500">*</span>
+          <div className="relative z-10 mb-6 flex items-center justify-between">
+            <h2 className="text-xl font-bold text-gray-900 tracking-wide">
+              Trending<span className="text-pink-600">*</span>
             </h2>
             <div className="flex gap-2">
-               <button className="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center text-white/50 hover:text-white hover:border-white/50 transition-colors">
+               <button className="w-8 h-8 rounded-full border border-black/10 flex items-center justify-center text-gray-500 hover:text-gray-900 hover:border-black/20 transition-colors">
                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" /></svg>
                </button>
-               <button className="w-8 h-8 rounded-full bg-blue-600 flex items-center justify-center text-white shadow-lg hover:bg-blue-500 transition-colors">
+               <button className="w-8 h-8 rounded-full bg-gradient-to-r from-orange-500 to-pink-600 flex items-center justify-center text-white shadow-lg transition-colors">
                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
                </button>
             </div>
@@ -115,14 +114,14 @@ export default function BlogsCatalog() {
                 <div className="flex-1 p-8 sm:p-10 flex flex-col justify-between bg-white">
                   <div>
                     <div className="text-xs font-medium text-gray-400 mb-2">{blog.date}</div>
-                    <h3 className="text-2xl font-bold text-gray-900 leading-tight mb-3 group-hover:text-blue-600 transition-colors line-clamp-2">
+                    <h3 className="text-2xl font-bold text-gray-900 leading-tight mb-3 group-hover:text-pink-600 transition-colors line-clamp-2">
                       {blog.title}
                     </h3>
                     <p className="text-gray-500 text-sm leading-relaxed mb-6 line-clamp-3">
                       {blog.desc}
                     </p>
                   </div>
-                  <Link href={`/blogs/${blog.slug}`} className="inline-flex h-10 w-32 items-center justify-center rounded-xl bg-[#050505] px-4 text-sm font-bold text-white transition-transform hover:scale-105 shadow-md">
+                  <Link href={`/blogs/${blog.slug}`} className="inline-flex h-10 w-32 items-center justify-center rounded-xl bg-gradient-to-r from-orange-500 to-pink-600 px-4 text-sm font-bold text-white transition-transform hover:scale-105 shadow-md">
                     Read Post
                   </Link>
                 </div>
@@ -155,15 +154,21 @@ export default function BlogsCatalog() {
                   type="text"
                   placeholder="Search articles..."
                   value={search}
-                  onChange={(e) => setSearch(e.target.value)}
-                  className="w-full pl-10 pr-4 h-10 bg-white border border-black/10 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent shadow-sm text-gray-900"
+                  onChange={(e) => {
+                    setSearch(e.target.value);
+                    setCurrentPage(1);
+                  }}
+                  className="w-full pl-10 pr-4 h-10 bg-white border border-black/10 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent shadow-sm text-gray-900"
                 />
               </div>
 
               <select 
                 value={category}
-                onChange={(e) => setCategory(e.target.value)}
-                className="h-10 px-4 bg-white border border-black/10 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 shadow-sm text-gray-700 cursor-pointer"
+                onChange={(e) => {
+                  setCategory(e.target.value);
+                  setCurrentPage(1);
+                }}
+                className="h-10 px-4 bg-white border border-black/10 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-pink-500 shadow-sm text-gray-700 cursor-pointer"
               >
                 {allCategories.map(cat => (
                   <option key={cat} value={cat}>{cat}</option>
@@ -207,14 +212,14 @@ export default function BlogsCatalog() {
                   <div className="p-8 flex flex-col flex-1 justify-between">
                     <div>
                       <div className="text-xs font-medium text-gray-400 mb-2">{blog.date}</div>
-                      <h3 className="text-lg font-bold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors line-clamp-2">
+                      <h3 className="text-lg font-bold text-gray-900 mb-3 group-hover:text-pink-600 transition-colors line-clamp-2">
                         {blog.title}
                       </h3>
                       <p className="text-sm text-gray-500 leading-relaxed line-clamp-3 mb-6">
                         {blog.desc}
                       </p>
                     </div>
-                    <Link href={`/blogs/${blog.slug}`} className="text-blue-600 font-bold text-sm tracking-wide inline-flex items-center gap-1 group-hover:gap-2 transition-all">
+                    <Link href={`/blogs/${blog.slug}`} className="text-pink-600 font-bold text-sm tracking-wide inline-flex items-center gap-1 group-hover:gap-2 transition-all">
                       Read more <span>&rarr;</span>
                     </Link>
                   </div>
@@ -240,7 +245,7 @@ export default function BlogsCatalog() {
                         onClick={() => setCurrentPage(idx + 1)}
                         className={`w-10 h-10 flex items-center justify-center rounded-xl text-sm font-bold transition-colors ${
                           currentPage === idx + 1 
-                            ? 'bg-blue-600 text-white shadow-md' 
+                            ? 'bg-gradient-to-r from-orange-500 to-pink-600 text-white shadow-md' 
                             : 'bg-white text-gray-600 hover:bg-gray-100 border border-black/5'
                         }`}
                       >
@@ -263,7 +268,7 @@ export default function BlogsCatalog() {
             <div className="w-full py-20 flex flex-col items-center justify-center text-center bg-white rounded-[2rem] border border-black/5 border-dashed">
               <svg className="w-12 h-12 text-gray-300 mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
               <h3 className="text-lg font-bold text-gray-900 mb-1">No blogs found</h3>
-              <p className="text-sm text-gray-500">We couldn't find any articles matching your search.</p>
+              <p className="text-sm text-gray-500">We couldn&apos;t find any articles matching your search.</p>
             </div>
           )}
 

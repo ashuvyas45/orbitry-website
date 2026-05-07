@@ -11,6 +11,9 @@ export const metadata: Metadata = {
   title: "Orbitry Upsell | Bundle, FBT, and AOV Growth",
   description:
     "Explore Orbitry Upsell capabilities, bundle types, and shopper conversion features built to grow AOV on Shopify.",
+  alternates: {
+    canonical: "/apps/orbitry-upsell",
+  },
 };
 
 const APP_STORE_URL = "https://apps.shopify.com";
