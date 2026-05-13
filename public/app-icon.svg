@@ -1,0 +1,11 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="orbitry-app-icon-gradient" x1="2" y1="2" x2="62" y2="62" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FF6A00" />
+      <stop offset="1" stop-color="#E80081" />
+    </linearGradient>
+  </defs>
+  <rect x="2" y="2" width="60" height="60" rx="18" fill="url(#orbitry-app-icon-gradient)" />
+  <circle cx="29" cy="31" r="15" stroke="white" stroke-width="5" />
+  <circle cx="44" cy="19" r="6" fill="white" />
+</svg>

@@ -7,7 +7,7 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-[#050505] pt-32 pb-12 w-full border-t border-white/5">
+    <footer className="bg-[#050505] pt-20 pb-12 w-full md:pt-24">
       <div className="mx-auto max-w-5xl px-6 flex flex-col items-center">
         
         {/* Logo */}
@@ -28,14 +28,14 @@ export default function Footer() {
         
         {/* Minimal Navigation */}
         <nav className="mb-16 flex flex-wrap items-center justify-center gap-x-8 gap-y-4">
-          <a 
-            href="/" 
+          <Link
+            href="/"
             className="text-[15px] font-semibold text-gray-300 hover:text-white transition-colors"
           >
             Home
-          </a>
-          <a 
-            href="/#apps" 
+          </Link>
+          <Link
+            href="/#apps"
             onClick={(e) => {
               if (window.location.pathname === '/') {
                 e.preventDefault();
@@ -45,9 +45,9 @@ export default function Footer() {
             className="text-[15px] font-semibold text-gray-300 hover:text-white transition-colors cursor-pointer"
           >
             App
-          </a>
-          <a 
-            href="/#testimonials" 
+          </Link>
+          <Link
+            href="/#testimonials"
             onClick={(e) => {
               if (window.location.pathname === '/') {
                 e.preventDefault();
@@ -57,7 +57,7 @@ export default function Footer() {
             className="text-[15px] font-semibold text-gray-300 hover:text-white transition-colors cursor-pointer"
           >
             Testimonials
-          </a>
+          </Link>
           <Link 
             href="/blogs" 
             className="text-[15px] font-semibold text-gray-300 hover:text-white transition-colors cursor-pointer"

@@ -1,11 +1,14 @@
 "use client";
 
+import Image from "next/image";
 import { useMemo, useState } from "react";
 
 export type BundleTypeItem = {
   id: string;
   name: string;
   description: string;
+  imageSrc?: string;
+  imageAlt?: string;
 };
 
 type BundleTypeTabsProps = {
@@ -54,16 +57,29 @@ export default function BundleTypeTabs({ items }: BundleTypeTabsProps) {
             </p>
           </div>
 
-          <div className="flex min-h-[240px] items-center justify-center rounded-2xl border-2 border-dashed border-white/35 bg-white/5 p-6 text-center sm:min-h-[300px]">
-            <div>
-              <div className="text-sm font-semibold uppercase tracking-[0.14em] text-orange-50/90">
-                Product page + widget
-              </div>
-              <div className="mt-2 text-xl font-bold tracking-tight text-white sm:text-2xl">
-                Image placeholder
+          {activeItem.imageSrc ? (
+            <div className="-mx-2 overflow-hidden rounded-2xl sm:-mx-4">
+              <Image
+                src={activeItem.imageSrc}
+                alt={activeItem.imageAlt ?? `${activeItem.name} product page and widget preview`}
+                width={2048}
+                height={1433}
+                className="h-auto w-full rounded-2xl object-contain"
+                priority={activeItem.id === "fixed-bundle"}
+              />
+            </div>
+          ) : (
+            <div className="flex min-h-[240px] items-center justify-center rounded-2xl border-2 border-dashed border-white/35 bg-white/5 p-6 text-center sm:min-h-[300px]">
+              <div>
+                <div className="text-sm font-semibold uppercase tracking-[0.14em] text-orange-50/90">
+                  Product page + widget
+                </div>
+                <div className="mt-2 text-xl font-bold tracking-tight text-white sm:text-2xl">
+                  Image placeholder
+                </div>
               </div>
             </div>
-          </div>
+          )}
         </div>
       </div>
     </div>

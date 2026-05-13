@@ -56,37 +56,51 @@ const bundleTypes: BundleTypeItem[] = [
   {
     id: "fixed-bundle",
     name: "Fixed Bundle",
-    description: "Create predefined product sets with clear savings and fast add-to-cart flow.",
+    description: "Create high-converting product bundles with predefined items, clear discounts, and one-click add-to-cart for a seamless shopping experience.",
+    imageSrc: "/mockups/fixed-bundle-product-widget.png",
+    imageAlt: "Fixed bundle product page with bundle and free item widget",
   },
   {
-    id: "volume-discount",
-    name: "Volume Discount",
-    description: "Reward customers with stronger pricing as they increase quantity.",
-  },
-  {
-    id: "mix-match",
-    name: "Mix & Match",
-    description: "Let shoppers compose their own bundles from a curated group of products.",
-  },
-  {
-    id: "cross-sell",
-    name: "Cross-sell",
-    description: "Surface relevant companion products right when intent is highest.",
+    id: "curated-bundle",
+    name: "Curated Bundle",
+    description: "Allow shoppers to build their own bundle from a curated product selection while increasing average order value with personalized combinations.",
+    imageSrc: "/mockups/curated-bundle-product-widget.png",
+    imageAlt: "Curated bundle product page with curated pack widget and bundle total",
   },
   {
     id: "buy-x-get-y",
     name: "Buy X Get Y",
-    description: "Drive urgency with goal-based offers that are easy to understand.",
+    description: "Boost conversions with flexible Buy X Get Y promotions that create urgency, encourage larger purchases, and reward customers instantly.",
+    imageSrc: "/mockups/buyxgety-product-widget.png",
+    imageAlt: "Buy X Get Y product page with bundle and save quantity tiers",
+  },
+  {
+    id: "fbt",
+    name: "FBT",
+    description: "Recommend complementary products based on shopper intent to increase cross-sells and drive higher cart value effortlessly.",
+    imageSrc: "/mockups/fbt-product-widget.png",
+    imageAlt: "Frequently bought together product page with FBT bundle widget",
   },
   {
     id: "add-ons",
     name: "Add-ons",
-    description: "Offer accessories and complementary items as low-friction boosts.",
+    description: "Offer relevant add-ons and accessories directly on the product page to increase impulse purchases with minimal friction.",
+    imageSrc: "/mockups/add-ons-product-widget.png",
+    imageAlt: "Add-ons product page with bundled offer and free mini item",
   },
   {
-    id: "fbt-bundle",
-    name: "FBT Bundle",
-    description: "Recommend frequently bought together combinations from real purchase behavior.",
+    id: "deal-gift",
+    name: "Deal Gifts",
+    description: "Drive larger orders with automatic free gifts and bundle rewards that make every purchase feel more valuable to customers.",
+    imageSrc: "/mockups/deal-gifts-product-widget.png",
+    imageAlt: "Deal gifts product page with bundle tiers and free gift row",
+  },
+  {
+    id: "progressive-gift",
+    name: "Progressive Gifts",
+    description: "Unlock tiered rewards and free gifts as cart value increases, motivating shoppers to spend more to reach the next milestone.",
+    imageSrc: "/mockups/progressive-gift-product-widget.png",
+    imageAlt: "Progressive gifts product page with bundle tiers and unlocked gift milestones",
   },
 ];
 
@@ -141,28 +155,24 @@ const chapters: Chapter[] = [
       "Launch campaigns with clear controls for quantity bars, labels, and pricing logic. Preview every configuration before publishing so teams move fast with confidence.",
     layers: [
       {
-        src: "/mockups/widget-bundle-save.png",
+        src: "/mockups/widget-bundle-save-v2.png",
         alt: "Bundle setup panel with quantity options",
-        className: "relative z-20 w-[78%] md:w-[74%] rounded-2xl border border-black/5 bg-white p-2 shadow-2xl",
+        className: "relative z-20 w-[76%] md:w-[68%] rounded-2xl border border-black/5 bg-white p-2 shadow-2xl",
       },
       {
-        src: "/mockups/widget-fbt-progress.png",
+        src: "/mockups/widget-fbt-progress-v2.png",
         alt: "Bundle preview drawer",
         className:
-          "absolute -right-2 top-[18%] z-30 w-[43%] rounded-2xl border border-black/5 bg-white p-2 shadow-2xl",
+          "absolute right-[1%] top-[6%] z-30 w-[42%] md:w-[37%] rounded-2xl border border-black/5 bg-white p-2 shadow-2xl",
       },
       {
-        src: "/mockups/widget-curated-pack.png",
+        src: "/mockups/widget-curated-pack-v2.png",
         alt: "Merchandising config reference",
         className:
-          "absolute left-[16%] top-[50%] z-10 w-[58%] rounded-2xl border border-black/5 bg-white p-2 opacity-95 shadow-xl",
+          "absolute left-[22%] top-[44%] z-40 w-[62%] md:w-[54%] rounded-2xl border border-black/5 bg-white p-2 opacity-95 shadow-xl",
       },
     ],
-    callouts: [
-      { label: "Time to first offer", value: "< 10 min" },
-      { label: "Setup friction", value: "Low" },
-      { label: "Campaign templates", value: "12+" },
-    ],
+    callouts: [],
   },
   {
     id: "brand",
@@ -175,28 +185,24 @@ const chapters: Chapter[] = [
       "From typography and spacing to badges and highlights, every offer can mirror your storefront style. Keep conversion blocks consistent with your visual system.",
     layers: [
       {
-        src: "/mockups/widget-curated-pack.png",
-        alt: "Curated bundle visual style",
-        className: "relative z-20 w-[86%] md:w-[80%] rounded-2xl border border-black/5 bg-white p-2 shadow-2xl",
+        src: "/mockups/widget-brand-product-cards-v2.png",
+        alt: "Product cards style customization controls",
+        className: "relative z-20 mx-auto w-[62%] md:w-[56%] rounded-2xl border border-black/5 bg-white p-2 shadow-2xl",
       },
       {
-        src: "/mockups/widget-buyxgety.png",
-        alt: "Buy X Get Y custom offer",
+        src: "/mockups/widget-brand-quick-style-v2.png",
+        alt: "Quick style controls for bundle widgets",
         className:
-          "absolute bottom-[6%] -left-2 z-30 w-[46%] rounded-2xl border border-black/5 bg-white p-2 shadow-2xl",
+          "absolute left-[1%] top-[5%] z-40 w-[40%] md:w-[35%] rounded-2xl border border-black/5 bg-white p-2 shadow-xl",
       },
       {
-        src: "/mockups/widget-fbt-progress.png",
-        alt: "Storefront recommendation style",
+        src: "/mockups/widget-brand-deal-config-v2.png",
+        alt: "Deal configuration panel with upsell and gift options",
         className:
-          "absolute right-[2%] top-[8%] z-10 w-[38%] rounded-2xl border border-black/5 bg-white p-2 opacity-95 shadow-xl",
+          "absolute right-[1%] top-[40%] z-40 w-[40%] md:w-[40%] rounded-2xl border border-black/5 bg-white p-2 shadow-xl",
       },
     ],
-    callouts: [
-      { label: "Theme-ready layouts", value: "100%" },
-      { label: "Color + badge control", value: "Granular" },
-      { label: "Variant UI support", value: "Built-in" },
-    ],
+    callouts: [],
   },
   {
     id: "analytics",
@@ -209,22 +215,31 @@ const chapters: Chapter[] = [
       "Monitor conversion lift, added revenue, and campaign contribution in real time. Spot what works, iterate quickly, and scale winning bundle strategies.",
     layers: [
       {
-        src: "/mockups/dashboard-analytics.png",
-        alt: "Analytics dashboard trend view",
-        className: "relative z-20 w-[88%] md:w-[84%] rounded-2xl border border-black/5 bg-white p-2 shadow-2xl",
+        src: "/mockups/analytics-revenue-growth-clean.png",
+        alt: "Revenue growth chart comparing last 30 days and previous 30 days",
+        className:
+          "absolute left-[3%] top-[18%] z-20 w-[63%] md:w-[60%] overflow-hidden rounded-2xl shadow-[0_24px_50px_rgba(15,23,42,0.18)]",
       },
       {
-        src: "/mockups/dashboard-overview.png",
-        alt: "Overview cards for upsell performance",
+        src: "/mockups/analytics-kpis-clean.png",
+        alt: "Analytics KPI cards showing impressions, upsell orders, conversion rate, and added revenue",
         className:
-          "absolute -right-3 top-[14%] z-30 w-[44%] rounded-2xl border border-black/5 bg-white p-2 shadow-2xl",
+          "absolute left-[3%] top-[3%] z-40 w-[94%] md:w-[92%] overflow-hidden rounded-2xl shadow-[0_24px_50px_rgba(15,23,42,0.14)]",
+      },
+      {
+        src: "/mockups/analytics-top-campaigns-clean.png",
+        alt: "Top campaigns list with conversion rate and revenue values",
+        className:
+          "absolute right-[3%] top-[22%] z-30 w-[33%] md:w-[31%] overflow-hidden rounded-2xl shadow-[0_24px_50px_rgba(15,23,42,0.16)]",
+      },
+      {
+        src: "/mockups/analytics-live-activity-clean.png",
+        alt: "Live activity feed of recent upsell purchases",
+        className:
+          "absolute right-[3%] top-[56%] z-30 w-[33%] md:w-[31%] overflow-hidden rounded-2xl shadow-[0_24px_50px_rgba(15,23,42,0.16)]",
       },
     ],
-    callouts: [
-      { label: "Added revenue tracked", value: "Daily" },
-      { label: "Conversion to bundle", value: "Live" },
-      { label: "Attribution visibility", value: "Clear" },
-    ],
+    callouts: [],
   },
   {
     id: "gifts",
@@ -237,22 +252,25 @@ const chapters: Chapter[] = [
       "Attach strategic gifts to qualifying bundles to raise intent and improve customer satisfaction. Reward larger carts without adding complexity for shoppers.",
     layers: [
       {
-        src: "/mockups/widget-buyxgety.png",
-        alt: "Gift-enabled bundle selection",
-        className: "relative z-20 w-[84%] md:w-[80%] rounded-2xl border border-black/5 bg-white p-2 shadow-2xl",
+        src: "/mockups/gifts-fbt-free-row-v2.png",
+        alt: "Frequently bought together bundle with free gift row and savings summary",
+        className:
+          "relative z-20 mx-auto w-[84%] md:w-[80%] rounded-2xl border border-black/5 bg-white p-2 shadow-2xl",
       },
       {
-        src: "/mockups/widget-curated-pack.png",
-        alt: "Multi-offer bundle and gift row",
+        src: "/mockups/gifts-pack-tier-v2.png",
+        alt: "Most popular pack tier card with free gift item",
         className:
-          "absolute right-[4%] top-[12%] z-10 w-[42%] rounded-2xl border border-black/5 bg-white p-2 opacity-95 shadow-xl",
+          "absolute left-[2%] top-[8%] z-30 w-[44%] md:w-[40%] rounded-2xl border border-black/5 bg-white p-2 shadow-2xl",
+      },
+      {
+        src: "/mockups/gifts-free-items-v2.png",
+        alt: "Free gifts unlock panel with available and locked items",
+        className:
+          "absolute right-[2%] top-[44%] z-30 w-[44%] md:w-[40%] rounded-2xl border border-black/5 bg-white p-2 shadow-2xl",
       },
     ],
-    callouts: [
-      { label: "Gift trigger logic", value: "Flexible" },
-      { label: "AOV impact", value: "High" },
-      { label: "Customer delight", value: "Strong" },
-    ],
+    callouts: [],
   },
 ];
 
@@ -431,6 +449,19 @@ function HeroSection() {
 
       <div className="relative mx-auto flex max-w-[1400px] flex-col items-center gap-12 lg:flex-row lg:gap-16">
         <div className="w-full lg:w-[48%]">
+          <div className="mb-6 inline-flex items-center gap-3">
+            <div className="relative h-[58px] w-[58px] overflow-hidden rounded-2xl">
+              <Image
+                src="/upsell-app-icon.png"
+                alt="Orbitry Upsell app icon"
+                fill
+                sizes="58px"
+                className="object-cover"
+              />
+            </div>
+            <p className="text-lg font-semibold tracking-tight text-slate-800">Orbitry | Upsell Bundles</p>
+          </div>
+
           <h1 className="font-serif text-4xl font-medium leading-[0.95] tracking-tight text-gray-900 sm:text-5xl md:text-[4.2rem]">
             Build and scale bundles with full-funnel clarity
           </h1>
@@ -462,16 +493,35 @@ function HeroSection() {
 
             <div className="relative z-20 overflow-hidden rounded-[2rem] border border-black/5 bg-white/80 p-4 shadow-2xl shadow-black/10 backdrop-blur-sm sm:p-6">
               <Image
-                src="/mockups/dashboard-analytics.png"
+                src="/mockups/hero-dashboard-custom.png"
                 alt="Orbitry analytics dashboard mockup"
-                width={1600}
-                height={1000}
+                width={2650}
+                height={1366}
                 className="h-auto w-full rounded-2xl border border-black/5"
               />
 
-              <div className="absolute right-8 top-8 rounded-2xl border border-black/5 bg-white px-4 py-3 shadow-lg">
-                <p className="text-xs font-semibold uppercase tracking-[0.12em] text-slate-500">Added Revenue</p>
-                <p className="mt-1 text-2xl font-bold tracking-tight text-slate-900">$5,913.95</p>
+              <div className="absolute right-4 top-4 z-40 rounded-2xl border border-white/95 bg-white/95 px-4 py-3 shadow-[0_24px_54px_rgba(15,23,42,0.26),0_8px_20px_rgba(15,23,42,0.14)] backdrop-blur-sm sm:right-8 sm:top-8 sm:px-5">
+                <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-slate-500 sm:text-[11px]">Added Revenue</p>
+                <p className="mt-1 text-2xl font-bold tracking-tight text-slate-900 sm:text-[2rem]">$15,945.00</p>
+                <p className="mt-1 text-xs font-semibold text-emerald-600 sm:text-sm">+60.1% vs previous 30 days</p>
+              </div>
+
+              <div className="absolute left-[58%] top-[53%] z-40 hidden md:block">
+                <span className="absolute -left-[11px] -top-[11px] h-[22px] w-[22px] rounded-full border-[3px] border-white bg-[#5f72d6] shadow-[0_12px_24px_rgba(70,91,199,0.45)]" />
+                <span className="absolute -left-[19px] -top-[19px] h-[38px] w-[38px] rounded-full border border-[#5f72d6]/35 bg-[#5f72d6]/12 animate-live-pulse" />
+                <div className="absolute left-5 top-4 w-[196px] rounded-2xl border border-white/90 bg-white/95 p-3 shadow-[0_24px_48px_rgba(15,23,42,0.24),0_6px_18px_rgba(15,23,42,0.14)] backdrop-blur-sm">
+                  <p className="text-sm font-semibold text-slate-800">May 6</p>
+                  <div className="mt-2 space-y-2 border-t border-slate-200/70 pt-2">
+                    <div className="flex items-center justify-between gap-2 text-sm">
+                      <span className="text-slate-600">Last 30 days</span>
+                      <span className="font-semibold text-slate-900">$707.00</span>
+                    </div>
+                    <div className="flex items-center justify-between gap-2 text-sm">
+                      <span className="text-slate-600">Previous 30 days</span>
+                      <span className="font-semibold text-slate-900">$442.00</span>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -508,6 +558,71 @@ function BundleTypesSection() {
 }
 
 function FeatureCanvas({ chapter }: { chapter: Chapter }) {
+  if (chapter.id === "analytics" && chapter.layers.length >= 4) {
+    const [revenueGrowthLayer, kpiLayer, topCampaignLayer, liveActivityLayer] = chapter.layers;
+
+    return (
+      <div className="relative overflow-hidden rounded-[2rem] border border-black/5 bg-[#ececef] px-4 py-5 sm:px-6 sm:py-7">
+        <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-white/45 to-transparent" />
+
+        <div className="relative space-y-4 sm:space-y-5 [perspective:1600px]">
+          <div className="relative rounded-2xl border border-white/90 bg-white/95 p-1 shadow-[0_20px_42px_rgba(15,23,42,0.16),0_6px_16px_rgba(15,23,42,0.1)] lg:[transform:translateZ(14px)]">
+            <div className="pointer-events-none absolute inset-x-8 -bottom-3 h-4 rounded-full bg-slate-900/20 blur-xl" />
+            <Image
+              src={kpiLayer.src}
+              alt={kpiLayer.alt}
+              width={2048}
+              height={230}
+              sizes="(max-width: 640px) 96vw, (max-width: 1024px) 90vw, 58vw"
+              className="relative z-10 h-auto w-full rounded-[0.95rem] [filter:brightness(1.05)_saturate(0.94)]"
+            />
+          </div>
+
+          <div className="grid items-start gap-4 lg:grid-cols-[1.5fr_0.92fr] lg:items-center">
+            <div className="relative z-20 self-start lg:self-center rounded-2xl border border-white/90 bg-white/95 p-1 shadow-[0_30px_64px_rgba(15,23,42,0.24),0_10px_24px_rgba(15,23,42,0.12)] lg:[transform:translateZ(26px)_rotateX(1.6deg)]">
+              <div className="pointer-events-none absolute inset-x-10 -bottom-5 h-7 rounded-full bg-slate-900/28 blur-2xl" />
+              <div className="relative z-10 aspect-[16/9] overflow-hidden rounded-[0.95rem]">
+                <Image
+                  src={revenueGrowthLayer.src}
+                  alt={revenueGrowthLayer.alt}
+                  fill
+                  sizes="(max-width: 640px) 96vw, (max-width: 1024px) 64vw, 39vw"
+                  className="object-cover object-left-top [filter:brightness(1.05)_saturate(0.94)]"
+                />
+              </div>
+            </div>
+
+            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-1 lg:self-center lg:-ml-6 lg:[transform:translateZ(18px)]">
+              <div className="relative z-30 rounded-2xl border border-white/90 bg-white/95 p-1 shadow-[0_26px_54px_rgba(15,23,42,0.22),0_8px_20px_rgba(15,23,42,0.12)] lg:[transform:rotateY(-2deg)]">
+                <div className="pointer-events-none absolute inset-x-8 -bottom-4 h-6 rounded-full bg-slate-900/24 blur-xl" />
+                <Image
+                  src={topCampaignLayer.src}
+                  alt={topCampaignLayer.alt}
+                  width={976}
+                  height={724}
+                  sizes="(max-width: 640px) 96vw, (max-width: 1024px) 44vw, 25vw"
+                  className="relative z-10 h-auto w-full rounded-[0.95rem] [filter:brightness(1.05)_saturate(0.94)]"
+                />
+              </div>
+
+              <div className="relative z-30 rounded-2xl border border-white/90 bg-white/95 p-1 shadow-[0_26px_54px_rgba(15,23,42,0.22),0_8px_20px_rgba(15,23,42,0.12)] lg:[transform:rotateY(-2deg)]">
+                <div className="pointer-events-none absolute inset-x-8 -bottom-4 h-6 rounded-full bg-slate-900/24 blur-xl" />
+                <Image
+                  src={liveActivityLayer.src}
+                  alt={liveActivityLayer.alt}
+                  width={976}
+                  height={724}
+                  sizes="(max-width: 640px) 96vw, (max-width: 1024px) 44vw, 25vw"
+                  className="relative z-10 h-auto w-full rounded-[0.95rem] [filter:brightness(1.05)_saturate(0.94)]"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="relative overflow-hidden rounded-[2rem] border border-black/5 bg-[#ececef] px-4 py-5 sm:px-6 sm:py-7">
       <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-white/45 to-transparent" />
@@ -519,17 +634,19 @@ function FeatureCanvas({ chapter }: { chapter: Chapter }) {
         ))}
       </div>
 
-      <div className="mt-4 grid gap-2 sm:grid-cols-3">
-        {chapter.callouts.map((callout) => (
-          <div
-            key={`${chapter.id}-${callout.label}`}
-            className={`rounded-xl border px-3 py-2 text-sm ${chipClass(chapter.tone)}`}
-          >
-            <div className="text-[11px] font-semibold uppercase tracking-[0.12em] opacity-75">{callout.label}</div>
-            <div className="mt-1 text-base font-bold tracking-tight">{callout.value}</div>
-          </div>
-        ))}
-      </div>
+      {chapter.callouts.length > 0 ? (
+        <div className="mt-4 grid gap-2 sm:grid-cols-3">
+          {chapter.callouts.map((callout) => (
+            <div
+              key={`${chapter.id}-${callout.label}`}
+              className={`rounded-xl border px-3 py-2 text-sm ${chipClass(chapter.tone)}`}
+            >
+              <div className="text-[11px] font-semibold uppercase tracking-[0.12em] opacity-75">{callout.label}</div>
+              <div className="mt-1 text-base font-bold tracking-tight">{callout.value}</div>
+            </div>
+          ))}
+        </div>
+      ) : null}
     </div>
   );
 }
@@ -571,7 +688,7 @@ function FeatureChapter({ chapter }: { chapter: Chapter }) {
 
 function AppStoreCtaSection() {
   return (
-    <section className="relative px-6 pt-24">
+    <section className="relative px-6 pt-32">
       <div className="absolute inset-x-0 inset-y-0 z-0">
         <div className="h-1/2 w-full bg-[#fafafa]" />
         <div className="h-1/2 w-full bg-[#050505]" />
