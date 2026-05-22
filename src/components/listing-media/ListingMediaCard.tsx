@@ -1,4 +1,5 @@
 import Image from "next/image";
+import type { ReactElement } from "react";
 import type { ListingMediaCard, MockupStyle } from "@/lib/listingMediaCards";
 
 type ListingMediaCardProps = {
@@ -694,7 +695,7 @@ function Style08({ card }: { card: ListingMediaCard }) {
 }
 
 function InspiredCard({ card, style }: { card: ListingMediaCard; style: MockupStyle }) {
-  const styleMap: Record<MockupStyle, JSX.Element> = {
+  const styleMap: Record<MockupStyle, ReactElement> = {
     "style-01": <Style01 card={card} />,
     "style-02": <Style02 card={card} />,
     "style-03": <Style03 card={card} />,
