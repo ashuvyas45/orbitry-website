@@ -301,14 +301,16 @@ export const LISTING_MEDIA_CARDS: ListingMediaCard[] = [
   {
     id: "09-overview-split",
     title: "More offers. More lift. More control.",
-    subtitle: "Built for merchants scaling AOV across every touchpoint.",
-    benefit:
-      "Inspired by top app-store storytelling layouts: clear headline left, feature product UX right, with a fast visual read for merchants.",
+    subtitle: "The Complete Shopify Bundle & Upsell App",
+    benefit: "",
     bullets: [
-      "Unified stack for bundles, volume, gifts, and upsells",
-      "Storefront-ready widgets with polished UI",
-      "Campaign and analytics workflows in one place",
-      "Designed for merchant-first comprehension in seconds",
+      "Quantity & Volume Bundles",
+      "Buy X Get Y Offers",
+      "Frequently Bought Together",
+      "Curated Product Bundles",
+      "Upsell Deals & Free Gifts",
+      "Progressive Gift Unlocks",
+      "Fully Customizable Widgets",
     ],
     altText: "Orbitry split-layout overview with bold left messaging and right-side product offer interface composition.",
     compliance: ["High clarity", "No hard claims", "Unique composition"],
@@ -318,9 +320,9 @@ export const LISTING_MEDIA_CARDS: ListingMediaCard[] = [
   {
     id: "10-volume-focus",
     title: "Turn quantity intent into larger carts",
-    subtitle: "Quantity breaks and Buy X Get Y in one visual flow.",
+    subtitle: "Quantity breaks and Buy X Get Y in one clear flow.",
     benefit:
-      "A reference-inspired composition that highlights pricing logic UI without overloading the merchant or using risky performance promises.",
+      "Highlights pricing tiers and product-pair logic in a format merchants can scan quickly while keeping setup decisions straightforward.",
     bullets: [
       "Tiered quantity break presentation",
       "Buy X Get Y with product-mapping flexibility",
@@ -335,9 +337,9 @@ export const LISTING_MEDIA_CARDS: ListingMediaCard[] = [
   {
     id: "11-bundles-curated",
     title: "Curated bundles that feel native",
-    subtitle: "Frequently bought together journeys with less friction.",
+    subtitle: "Curated bundles and FBT journeys with less friction.",
     benefit:
-      "This variant emphasizes offer context and compatibility, similar to conversion-story cards in leading Shopify app listings.",
+      "Emphasizes compatibility context and add-all flow clarity so bundle experiences stay intuitive for both teams and shoppers.",
     bullets: [
       "Curated bundle blocks for key collections",
       "Frequently bought together recommendations",
@@ -352,9 +354,9 @@ export const LISTING_MEDIA_CARDS: ListingMediaCard[] = [
   {
     id: "12-gifts-milestones",
     title: "Delight shoppers with gift milestones",
-    subtitle: "Offer smart gifts and upsells without clutter.",
+    subtitle: "Smart gift milestones and upsells without clutter.",
     benefit:
-      "Progressive gifts and deal upsell cards are presented in a visual narrative format inspired by high-performing feature-image layouts.",
+      "Presents progressive gift states and upsell timing in a simple visual narrative that keeps the journey easy to understand.",
     bullets: [
       "Free gift thresholds with clear states",
       "Progress milestones to encourage higher cart value",
@@ -369,9 +371,9 @@ export const LISTING_MEDIA_CARDS: ListingMediaCard[] = [
   {
     id: "13-builder-speed",
     title: "Build campaigns in minutes, not weeks",
-    subtitle: "From targeting to design tweaks in one workspace.",
+    subtitle: "From targeting to design tweaks in one workflow.",
     benefit:
-      "A productivity-focused composition that takes cues from onboarding-centric feature cards used by major commerce apps.",
+      "Focuses on launch velocity with a guided setup path that helps teams move from idea to live campaign with less back-and-forth.",
     bullets: [
       "Guided setup and rule-builder progression",
       "Theme-aware visual customization controls",
@@ -386,9 +388,9 @@ export const LISTING_MEDIA_CARDS: ListingMediaCard[] = [
   {
     id: "14-analytics-story",
     title: "See what works, then scale it",
-    subtitle: "Analytics designed for faster campaign decisions.",
+    subtitle: "Revenue context designed for faster campaign decisions.",
     benefit:
-      "Data-oriented layout inspired by chart-centric app listings, presenting performance trends and contribution context with strong readability.",
+      "Combines growth trends, contribution signals, and campaign comparison views so teams can prioritize the next optimization step with confidence.",
     bullets: [
       "Campaign contribution trend visibility",
       "Single dashboard for upsell performance",
@@ -405,7 +407,7 @@ export const LISTING_MEDIA_CARDS: ListingMediaCard[] = [
     title: "24/7 support, whenever campaigns move",
     subtitle: "Get reliable help during launches and peak traffic.",
     benefit:
-      "Support-focused visual style inspired by trust cards from major app listings, emphasizing coverage, responsiveness, and merchant confidence.",
+      "Reinforces coverage, responsiveness, and operational visibility so merchants can keep campaigns stable during high-pressure moments.",
     bullets: [
       "Always-on support availability",
       "Onboarding and migration guidance",
@@ -420,9 +422,9 @@ export const LISTING_MEDIA_CARDS: ListingMediaCard[] = [
   {
     id: "16-targeting-markets",
     title: "Target by collection and market",
-    subtitle: "Localize campaigns without duplicating operations.",
+    subtitle: "Localize campaigns without duplicating setup work.",
     benefit:
-      "A control-panel style composition inspired by clean integration cards, built to explain segmentation and market-specific orchestration quickly.",
+      "Shows how collection logic and market controls can be orchestrated from one control surface while preserving regional merchandising flexibility.",
     bullets: [
       "Collection-based configuration rules",
       "Market-specific visibility and logic",
